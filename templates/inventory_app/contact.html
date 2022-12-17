@@ -1,0 +1,53 @@
+{% extends "../layout.html" %}
+{% load static %}
+{% block menubutton %}
+{% if userflag %}
+  <li><a class="getstarted scrollto" href="{% url 'logout' %}">Logout</a></li>
+{% else %}
+  <li><a class="getstarted scrollto" href="{% url 'login' %}">Login</a></li>
+{% endif %}
+{% endblock %}
+
+{% block content %}
+
+<main id="main" class="main">
+
+  <div class="pagetitle">
+    <h1>Contacts - Project Members</h1>
+  </div><!-- End Page Title -->
+
+  <section class="section">
+    <div class="row">
+      <div class="col-xl-6 profile">
+
+        <div class="card profile">
+          <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
+
+            <img src="{% static 'assets/img/SP_Pic.jpeg' %}" alt="Profile" class="rounded-circle" style="max-width:400px; max-height: 400px;">
+            <h2>Saravana Prabhu Ramasamy</h2>
+            <h3>NJIT CS Grad Student</h3>
+            <h4>sr2484@njit.edu</h4>
+            <div class="social-links mt-2">
+              <a href="https://www.linkedin.com/in/saravana-prabhu-ramasamy" class="linkedin"><i class="bi bi-linkedin"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-6 profile">
+        <div class="card profile">
+          <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
+            <img src="{% static 'assets/img/koushik.jpeg' %}" alt="Profile" class="rounded-circle" style="max-width:400px; max-height: 400px;">
+            <h2>Koushik Chandrasekaran</h2>
+            <h3>NJIT CS Grad Student</h3>
+            <h4>kc664@njit.edu</h4>
+            <div class="social-links mt-2">
+              <a href="https://in.linkedin.com/in/koushik-chandrasekaran-a9b98a173/" class="linkedin"><i class="bi bi-linkedin"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+{% endblock %}

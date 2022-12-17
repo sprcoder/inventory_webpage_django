@@ -1,0 +1,124 @@
+{% extends "../layout.html" %}
+{% load static %}
+{% block menubutton %}<li><a class="getstarted scrollto" href="{% url 'logout' %}">Logout</a></li>{% endblock %}
+
+{% block content %}
+<main id="main" class="main">
+  <div class="pagetitle">
+    <h1>Orders Overview</h1>
+  </div>
+<section class="section ordersection">
+  <div class="row">
+    <div class="col-lg-6">
+
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Orders</h5>
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Order By</th>
+                <th scope="col">Status</th>
+                <th scope="col">Shipping City</th>
+                <th scope="col">Shipping State</th>
+                <th scope="col">Assigned To</th>
+                <th scope="col">Comments</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for o in order %}
+                <tr style="cursor: pointer; cursor: hand;">
+                  <th scope="row">{{ o.ORDER_ID }}</th>
+                  <th scope="row">{{ o.ORDERED_BY }}</th>
+                  <th scope="row">
+                  {% if o.STATUS == "Created" %}
+                    <span class="badge rounded-pill bg-secondary">{{ o.STATUS }}</span>
+                  {% endif %}
+                  {% if o.STATUS == "Processing" %}
+                    <span class="badge rounded-pill bg-info text-dark">{{ o.STATUS }}</span>
+                  {% endif %}
+                  {% if o.STATUS == "Packing"  %}
+                  <span class="badge rounded-pill bg-light text-dark">{{ o.STATUS }}</span>
+                  {% endif %}
+                  {% if o.STATUS == "Shipped"  %}
+                    <span class="badge rounded-pill bg-success">{{ o.STATUS }}</span>
+                  {% endif %}
+                  </th>
+                  <th scope="row">{{ o.SHP_CITY }}</th>
+                  <th scope="row">{{ o.SHP_STATE }}</th>
+                  <th scope="row">{{ o.ASSIGNEDTO }}</th>
+                  <th scope="row">{{ o.COMMENTS }}</th>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+          <!-- End Default Table Example -->
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Incoming Orders</h5>
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Product</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Price</th>
+                <th scope="col">Supplier</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for o in in_order %}
+                <tr style="cursor: pointer; cursor: hand;">
+                  <th scope="row">{{ o.ORDER_ID }}</th>
+                  <th scope="row">{{ o.PRODUCT_NAME }}</th>
+                  <th scope="row">{{ o.QUANTITY }}</th>
+                  <th scope="row">{{ o.PRICE }}$</th>
+                  <th scope="row">{{ o.SUP_NAME }}</th>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+          <!-- End Default Table Example -->
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Outgoing Orders</h5>
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Product</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Price</th>
+                <th scope="col">Distributor</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for o in out_order %}
+                <tr style="cursor: pointer; cursor: hand;">
+                  <th scope="row">{{ o.ORDER_ID }}</th>
+                  <th scope="row">{{ o.PRODUCT_NAME }}</th>
+                  <th scope="row">{{ o.QUANTITY }}</th>
+                  <th scope="row">{{ o.PRICE }}$</th>
+                  <th scope="row">{{ o.DIST_NAME }}</th>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+          <!-- End Default Table Example -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+
+{% endblock %}

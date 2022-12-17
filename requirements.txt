@@ -1,0 +1,10 @@
+asgiref==3.5.2
+cffi==1.15.1
+cryptography==38.0.4
+cx-Oracle==8.3.0
+Django==4.1.4
+oracledb==1.2.1
+pycparser==2.21
+PyOracleClient==0.2.5
+sqlparse==0.4.3
+tqdm==4.64.1
