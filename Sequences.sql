@@ -1,0 +1,55 @@
+--Warehouse Sequence
+CREATE SEQUENCE wh_seq 
+START WITH 100
+INCREMENT BY 100
+NOCYCLE;
+
+--Warehouse section Sequence
+CREATE SEQUENCE wh_sec_seq 
+START WITH 100
+INCREMENT BY 100
+NOCYCLE;
+
+--Employee Sequence
+CREATE SEQUENCE emp_seq 
+START WITH 1000
+INCREMENT BY 1
+NOCYCLE;
+
+--Product Sequence
+CREATE SEQUENCE prd_seq 
+START WITH 10000
+INCREMENT BY 1
+NOCYCLE;
+
+--Product_Type Sequence
+CREATE SEQUENCE prd_type_seq 
+START WITH 1
+INCREMENT BY 1
+NOCYCLE;
+
+--Stock Sequence
+CREATE SEQUENCE stock_seq 
+START WITH 1
+INCREMENT BY 1
+NOCYCLE;
+
+--Orders Sequence
+CREATE SEQUENCE order_seq 
+START WITH 1
+INCREMENT BY 1
+NOCYCLE;
+
+--Supplier Sequence
+CREATE SEQUENCE supp_seq 
+START WITH 10
+INCREMENT BY 10
+NOCYCLE;
+
+--Distributor Sequence
+CREATE SEQUENCE dist_seq 
+START WITH 10
+INCREMENT BY 10
+NOCYCLE;
+
+
